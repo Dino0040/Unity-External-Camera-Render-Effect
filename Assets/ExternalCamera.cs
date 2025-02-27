@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 [ExecuteInEditMode]
 public class ExternalCamera : MonoBehaviour
@@ -9,7 +8,6 @@ public class ExternalCamera : MonoBehaviour
     private static readonly int Dither = Shader.PropertyToID("_Dither");
     [SerializeField] private Texture2D ditherTexture;
     new Camera camera;
-    UniversalCameraData cameraData;
     RenderTexture renderTexture;
     
     void Update()
@@ -17,7 +15,6 @@ public class ExternalCamera : MonoBehaviour
         if (!camera)
         {
             camera = GetComponent<Camera>();
-            cameraData = GetComponent<UniversalCameraData>();
             if (!camera) return;
         }
         
